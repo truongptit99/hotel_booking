@@ -29,4 +29,18 @@ class BookedRoom extends Model
             ->pluck('room_id')
             ->toArray();
     }
+
+    public function checkAvailability($data)
+    {
+        $bookedRoom = $this->where('room_id', $data['room_id'])
+            ->where('check_in', '<', $data['check_out'])
+            ->where('check_out', '>', $data['check_in'])
+            ->first();
+
+        if (empty($bookedRoom)) {
+            return true;
+        }
+
+        return false;
+    }
 }

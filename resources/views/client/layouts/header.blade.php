@@ -45,7 +45,6 @@
 <!-- Top header end -->
 
 <!-- Main header start -->
-
 <header class="main-header main-header-4">
     <div class="container">
         <nav class="navbar navbar-default">
@@ -115,5 +114,4 @@
         </nav>
     </div>
 </header>
-
 <!-- Main header end -->

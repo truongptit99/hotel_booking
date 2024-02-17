@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\BookingController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\PaymentController;
+use App\Http\Controllers\Client\RoomController as ClientRoomController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +40,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes(['verify' => true]);
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::post('/search/rooms', [HomeController::class, 'searchRoom'])->name('search.room');
+
+Route::group(['prefix' => 'rooms'], function () {
+    Route::post('/search', [ClientRoomController::class, 'searchRoom'])->name('search.room');
+    Route::get('{slug}', [ClientRoomController::class, 'getRoomDetail'])->name('get.room.detail');
+    Route::post('/check-availability', [ClientRoomController::class, 'checkAvailability'])->name('check.room.availability');
+});
+
+Route::get('/booking-system', [BookingController::class, 'getBookingSystem'])->name('get.booking.system');

@@ -76,13 +76,13 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4 col-xs-6 option-search-room">
                                     <div class="form-group">
-                                        <input type="text" class="btn-default datepicker" name="check_in" placeholder="Check in" id="check_in">
+                                        <input type="text" class="btn-default datepicker" name="check_in" value="{{ session('start_date', '') }}" placeholder="Check in" id="check_in">
                                         <div class="text-error error_check_in"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-6 option-search-room">
                                     <div class="form-group">
-                                        <input type="text" class="btn-default datepicker" name="check_out" placeholder="Check out" id="check_out">
+                                        <input type="text" class="btn-default datepicker" name="check_out" value="{{ session('end_date', '') }}" placeholder="Check out" id="check_out">
                                         <div class="text-error error_check_out"></div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                             <option value="">Room type</option>
                                             @if (!empty(config('constants.room_type')))
                                                 @foreach (config('constants.room_type') as $key => $value)
-                                                    <option value="{{ $value }}">{{ $key }}</option>
+                                                    <option value="{{ $value }}" {{ session('type', '') == $value ? 'selected' : '' }}>{{ $key }}</option>
                                                 @endforeach
                                             @endif
                                         </select>
@@ -101,19 +101,19 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-6 option-search-room">
                                     <div class="form-group">
-                                        <input type="text" class="btn-default" name="name" id="name" placeholder="Enter room name">
+                                        <input type="text" class="btn-default" name="name" value="{{ session('room_name', '') }}" id="name" placeholder="Enter room name">
                                         <div class="text-error error_check_name"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-6 option-search-room">
                                     <div class="form-group">
-                                        <input type="text" class="btn-default" name="adult" id="adult" placeholder="Enter number of adults">
+                                        <input type="text" class="btn-default" name="adult" value="{{ session('adult', '') }}" id="adult" placeholder="Enter number of adults">
                                         <div class="text-error error_adult"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-6 option-search-room">
                                     <div class="form-group">
-                                        <input type="text" class="btn-default" name="children" id="children" placeholder="Enter number of children">
+                                        <input type="text" class="btn-default" name="children" value="{{ session('children', '') }}" id="children" placeholder="Enter number of children">
                                         <div class="text-error error_children"></div>
                                     </div>
                                 </div>
@@ -153,35 +153,32 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('client/js/datepicker_startdate_enddate.js') }}"></script>
     <script>
-        $('#check_in').datepicker({
-            format: 'yyyy/mm/dd',
-            startDate: new Date(),
-            todayHighlight: true,
-            clearBtn: true,
-            autoclose: true
-        }).on('changeDate', function (e) {
-            let checkIn = $('#check_in').val();
+        $(document).ready(function () {
+            $('#check_in').datepicker({
+                format: 'yyyy-mm-dd',
+                startDate: new Date(),
+                todayHighlight: true,
+                clearBtn: true,
+                autoclose: true
+            }).on('changeDate', function (e) {
+                let checkIn = $('#check_in').val();
 
-            if (checkIn !== '') {
-                let checkInDate = new Date(checkIn);
-                $('#check_out').datepicker('setStartDate', new Date(checkInDate.addDays(1)));
-            }
-        });
-
-        $('#check_out').datepicker({
-            format: 'yyyy/mm/dd',
-            startDate: new Date(),
-            todayHighlight: true,
-            clearBtn: true,
-            autoclose: true
-        }).on('changeDate', function () {
-            let checkOut = $('#check_out').val();
-
-            if (checkOut !== '') {
-                let checkOutDate = new Date(checkOut);
-                $('#check_in').datepicker('setEndDate', new Date(checkOutDate.addDays(-1)));
-            }
+                setStartDateForCheckOut(checkIn);
+            });
+    
+            $('#check_out').datepicker({
+                format: 'yyyy-mm-dd',
+                startDate: new Date(),
+                todayHighlight: true,
+                clearBtn: true,
+                autoclose: true
+            }).on('changeDate', function () {
+                let checkOut = $('#check_out').val();
+    
+                setEndDateForCheckIn(checkOut);
+            });
         });
 
         const searchRoom = function (page = '') {

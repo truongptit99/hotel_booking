@@ -100,7 +100,7 @@ class RoomController extends Controller
      */
     public function update(UpdateRoomRequest $request, $id)
     {
-        $data = $request->only(['image', 'name', 'slug', 'type', 'price', 'max_adult', 'max_children', 'description']);
+        $data = $request->validated();
         $room = $this->roomModel->findById($id);
         $fileName = '';
         if (!empty($room)) {

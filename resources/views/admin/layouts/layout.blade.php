@@ -12,11 +12,11 @@
     <title>@yield('title')</title>
     <link rel="icon" href="{{ asset('client/img/favicon.ico') }}">
     <link href="{{ asset('/dist/css/style.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('/assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
-    <link href="{{ asset('/assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('/assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
-    <link href="{{ asset('/dist/css/status.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('/dist/css/status.css') }}" rel="stylesheet"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -78,7 +78,6 @@
     <script src="{{ asset('dist/js/app.init.js') }}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/extra-libs/sparkline/sparkline.js') }}"></script>
     <!--Wave Effects -->
     <script src=" {{ asset('dist/js/waves.js') }}"></script>
     <!--Menu sidebar -->
@@ -87,8 +86,8 @@
     <script src="{{ asset('dist/js/custom.js') }}"></script>
     <!--This page plugins -->
     <script src="{{ asset('assets/extra-libs/DataTables/datatables.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js') }}"></script>
+    <!-- <script src="{{ asset('assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js') }}"></script> -->
     <script src="{{ asset('assets/libs/moment/min/moment.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <script src="{{ asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>

@@ -2544,6 +2544,10 @@ footer ul {
     color: orangered;
 }
 
+.hotel-box .detail .number-people {
+    min-height: 31px;
+}
+
 .hotel-box .detail .location a i {
     margin-right: 10px;
 }
@@ -4532,7 +4536,7 @@ span.round-tab:hover i {
 }
 
 .wizard .nav-tabs > li {
-    width: 25%;
+    width: calc(100%/3);
 }
 
 .wizard li:after {
@@ -4632,11 +4636,13 @@ span.round-tab:hover i {
     line-height: 30px;
     font-size: 15px;
     color: #fff;
+    display: flex;
 }
 
 .booling-details-box ul li span {
     font-weight: 600;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    min-width: 40%;
 }
 
 .booling-details-box .price {
@@ -4680,6 +4686,13 @@ span.round-tab:hover i {
     font-weight: 400;
 }
 
+.booking-flow .contact-form label.error {
+    font-size: 13px;
+    text-align: start;
+    color: rgb(220, 53, 69);
+    margin-bottom: 0;
+}
+
 .booking-flow .contact-form .input-text {
     width: 100%;
     padding: 10px 17px;
@@ -4701,7 +4714,8 @@ span.round-tab:hover i {
 }
 
 .booking-flow .contact-form .form-group {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
+    min-height: 98px;
 }
 
 .booking-flow .country {

@@ -57,6 +57,11 @@ class Room extends Model
         return $this->where('id', $id)->first();
     }
 
+    public function findBySlug($slug)
+    {
+        return $this->where('slug', $slug)->first();
+    }
+
     public function updateRoom($attributes, $id)
     {
         return $this->where('id', $id)->update($attributes);
@@ -68,18 +73,22 @@ class Room extends Model
 
         if (!empty($request->name)) {
             $result = $result->where('name', 'like', '%' . $request->name . '%');
+            session(['room_name' => $request->name]);
         }
 
         if (!empty($request->type)) {
             $result = $result->where('type', $request->type);
+            session(['type' => $request->type]);
         }
 
         if (!empty($request->adult)) {
             $result = $result->where('max_adult', '>=', $request->adult);
+            session(['adult' => $request->adult]);
         }
 
         if (!empty($request->children)) {
             $result = $result->where('max_children', '>=', $request->children);
+            session(['children' => $request->children]);
         }
 
         $result = $result->whereNotIn('id', $listRoomIdBooked)
