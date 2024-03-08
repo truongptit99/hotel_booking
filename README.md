@@ -1,2 +1,2 @@
-- Đã hoàn thiện tất cả các chức năng, ngoại trừ chức năng đặt phòng
-- Chạy file AdminSeeder để tạo tài khoản phục vụ cho việc login phía CMS (email: admin@gmail.com, password: 12345678)
+- The client site allow user to search, check availability, book room and pay
+- The admin site allow to manage user, room and booking with CRUD operations
