@@ -109,7 +109,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('bookings.index') }}" aria-expanded="false">
                         <i class="fas fa-briefcase"></i>
                         <span class="hide-menu">Booking Management</span>
                     </a>

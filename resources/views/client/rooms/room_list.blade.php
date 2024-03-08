@@ -15,7 +15,7 @@
                         <h5 class="room-type">{{ array_search($room->type, config('constants.room_type')) }}</h5>
                         <h5 class="number-people">Maximum number of people: {{ $room->max_adult . ' adult(s)' }} {{ !empty($room->max_children) ? ', ' . $room->max_children . ' children' : ''}}</h5>
                         <h5 class="price">
-                            {{ number_format($room->price) . ' VND/night' }}
+                            {{ number_format($room->price) . ' USD/night' }}
                         </h5>
                         <p class="room-description text-line-clamp-3">{{ $room->description }}</p>
                     </div>

@@ -16,11 +16,12 @@ class CreateBookedRoomsTable extends Migration
         Schema::create('booked_rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('booking_id');
-            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('room_id');
             $table->date('check_in');
             $table->date('check_out');
             $table->double('price');
+            $table->tinyInteger('adults');
+            $table->tinyInteger('children')->nullable();
             $table->timestamps();
         });
     }

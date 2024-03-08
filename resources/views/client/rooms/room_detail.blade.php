@@ -30,7 +30,7 @@
                             <h3>{{ $room->name }}</h3>
                         </div>
                         <div class="pull-right">
-                            <h3><span>{{ number_format($room->price) . ' VND' }}</span></h3>
+                            <h3><span>{{ number_format($room->price) . ' USD' }}</span></h3>
                             <h5>Per Night</h5>
                         </div>
                     </div>
@@ -339,8 +339,8 @@
 
                 setStartDateForCheckOut(checkIn);
             });
-
-            setEndDateForCheckIn(firstCheckOut);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+            
+            setEndDateForCheckIn(firstCheckOut);
 
             $('#check_out').datepicker({
                 format: 'yyyy-mm-dd',
@@ -352,6 +352,8 @@
 
                 setEndDateForCheckIn(checkOut);
             });
+
+            setStartDateForCheckOut(firstCheckIn);
         });
     </script>
 @endsection

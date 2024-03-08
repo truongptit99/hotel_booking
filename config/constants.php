@@ -8,4 +8,10 @@ return [
     ],
 
     'pagination' => 6,
+
+    'payment_status' => [
+        'success' => 1,
+        'failed' => 2,
+        'pending' => 3,
+    ],
 ];

@@ -15,6 +15,7 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('contact_first_name', 100);
             $table->string('contact_last_name', 100);
             $table->string('phone_number', 50);
@@ -22,6 +23,7 @@ class CreateBookingsTable extends Migration
             $table->string('address');
             $table->string('zip_code', 10);
             $table->double('total_price');
+            $table->tinyInteger('payment_status')->comment('1: success, 2: failed, 3: pending');
             $table->timestamps();
         });
     }

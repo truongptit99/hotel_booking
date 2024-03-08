@@ -20,6 +20,9 @@ class CreateRoomsTable extends Migration
             $table->string('slug', 255)->unique();
             $table->tinyInteger('type')->comment('1: single, 2: double, 3: deluxe');
             $table->double('price');
+            $table->tinyInteger('max_adult');
+            $table->tinyInteger('max_children')->default(0)->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -9,14 +9,14 @@ $(function () {
     });
 
     // WOW animation library initialization
-    var wow = new WOW(
-        {
-            animateClass: 'animated',
-            offset: 100,
-            mobile: false
-        }
-    );
-    wow.init();
+    // var wow = new WOW(
+    //     {
+    //         animateClass: 'animated',
+    //         offset: 100,
+    //         mobile: false
+    //     }
+    // );
+    // wow.init();
 
     // Banner slider
     (function ($) {
@@ -55,22 +55,22 @@ $(function () {
     })(jQuery);
 
     // Page scroller initialization.
-    $.scrollUp({
-        scrollName: 'page_scroller',
-        scrollDistance: 300,
-        scrollFrom: 'top',
-        scrollSpeed: 500,
-        easingType: 'linear',
-        animation: 'fade',
-        animationSpeed: 200,
-        scrollTrigger: false,
-        scrollTarget: false,
-        scrollText: '<i class="fa fa-chevron-up"></i>',
-        scrollTitle: false,
-        scrollImg: false,
-        activeOverlay: false,
-        zIndex: 2147483647
-    });
+    // $.scrollUp({
+    //     scrollName: 'page_scroller',
+    //     scrollDistance: 300,
+    //     scrollFrom: 'top',
+    //     scrollSpeed: 500,
+    //     easingType: 'linear',
+    //     animation: 'fade',
+    //     animationSpeed: 200,
+    //     scrollTrigger: false,
+    //     scrollTarget: false,
+    //     scrollText: '<i class="fa fa-chevron-up"></i>',
+    //     scrollTitle: false,
+    //     scrollImg: false,
+    //     activeOverlay: false,
+    //     zIndex: 2147483647
+    // });
 
     //Datepicket
     // $(".datepicker").datepicker({
@@ -81,6 +81,7 @@ $(function () {
     //     autoclose: true
     // });
 
+    // addDays function
     Date.prototype.addDays = function(days) {
         var date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
@@ -150,12 +151,12 @@ $(function () {
     }());
 
     // Background video playing script
-    $(document).ready(function () {
-        $(".player").mb_YTPlayer();
-    });
+    // $(document).ready(function () {
+    //     $(".player").mb_YTPlayer();
+    // });
 
     // Multilevel menuus
-    $('[data-submenu]').submenupicker();
+    // $('[data-submenu]').submenupicker();
 
     // Expending/Collapsing advance search content
     $('.show-more-options').on('click', function () {
@@ -206,20 +207,20 @@ $(function () {
 });
 
 // mCustomScrollbar initialization
-(function ($) {
-    $(window).resize(function () {
-        $('#map').css('height', $(this).height() - 110);
-        if ($(this).width() > 768) {
-            $(".map-content-sidebar").mCustomScrollbar(
-                {theme: "minimal-dark"}
-            );
-            $('.map-content-sidebar').css('height', $(this).height() - 110);
-        } else {
-            $('.map-content-sidebar').mCustomScrollbar("destroy"); //destroy scrollbar
-            $('.map-content-sidebar').css('height', '100%');
-        }
-    }).trigger("resize");
-})(jQuery);
+// (function ($) {
+//     $(window).resize(function () {
+//         $('#map').css('height', $(this).height() - 110);
+//         if ($(this).width() > 768) {
+//             $(".map-content-sidebar").mCustomScrollbar(
+//                 {theme: "minimal-dark"}
+//             );
+//             $('.map-content-sidebar').css('height', $(this).height() - 110);
+//         } else {
+//             $('.map-content-sidebar').mCustomScrollbar("destroy"); //destroy scrollbar
+//             $('.map-content-sidebar').css('height', '100%');
+//         }
+//     }).trigger("resize");
+// })(jQuery);
 
 /* Demo purposes only */
 $(".hover").mouseleave(

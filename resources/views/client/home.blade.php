@@ -156,6 +156,9 @@
     <script src="{{ asset('client/js/datepicker_startdate_enddate.js') }}"></script>
     <script>
         $(document).ready(function () {
+            let firstCheckIn = $('#check_in').val();
+            let firstCheckOut = $('#check_out').val();
+
             $('#check_in').datepicker({
                 format: 'yyyy-mm-dd',
                 startDate: new Date(),
@@ -167,10 +170,11 @@
 
                 setStartDateForCheckOut(checkIn);
             });
+
+            setEndDateForCheckIn(firstCheckOut);
     
             $('#check_out').datepicker({
                 format: 'yyyy-mm-dd',
-                startDate: new Date(),
                 todayHighlight: true,
                 clearBtn: true,
                 autoclose: true
@@ -179,6 +183,8 @@
     
                 setEndDateForCheckIn(checkOut);
             });
+
+            setStartDateForCheckOut(firstCheckIn);
         });
 
         const searchRoom = function (page = '') {

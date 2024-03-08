@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RoomController;
@@ -35,6 +36,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::resource('users', UserController::class)->only(['index', 'edit', 'update', 'destroy']);
         Route::post('/users/data', [UserController::class, 'getListUser'])->name('users.data');
+
+        Route::get('/bookings/index', [AdminBookingController::class, 'index'])->name('bookings.index');
+        Route::post('/bookings/data', [AdminBookingController::class, 'getListBooking'])->name('bookings.data');
     });
 });
 
@@ -47,4 +51,9 @@ Route::group(['prefix' => 'rooms'], function () {
     Route::post('/check-availability', [ClientRoomController::class, 'checkAvailability'])->name('check.room.availability');
 });
 
-Route::get('/booking-system', [BookingController::class, 'getBookingSystem'])->name('get.booking.system');
+Route::group(['prefix' => 'booking'], function () {
+    Route::get('/system', [BookingController::class, 'getBookingSystem'])->name('get.booking.system');
+    Route::post('/submit', [BookingController::class, 'submitBooking'])->name('submit.booking');
+});
+
+Route::get('/payment/success/{bookingId}', [PaymentController::class, 'updatePaymentStatusSuccess'])->name('update.payment.status.success');

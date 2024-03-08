@@ -7,7 +7,8 @@ use App\Http\Requests\Room\CheckAvailabilityRoomRequest;
 use App\Http\Requests\Room\SearchRoomRequest;
 use App\Models\BookedRoom;
 use App\Models\Room;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class RoomController extends Controller
 {
@@ -52,12 +53,23 @@ class RoomController extends Controller
     {
         $data = $request->validated();
 
-        $check = $this->bookedRoomModel->checkAvailability($data);
         $room = $this->roomModel->findById($data['room_id']);
         session(['room' => $room]);
 
+        if ((!empty($room->max_adult) && ($room->max_adult < $data['adult'])) || 
+            (!empty($room->max_children) && !empty($data['children']) && ($room->max_children < $data['children']))) {
+                return back()->with(['alert-type' => 'warning', 'message' => 'The number of adults or children exceeds the allowed number!']);
+        }
+        
+        $check = $this->bookedRoomModel->checkAvailability($data);
+
         if ($check) {
-            session(['check_in' => $data['check_in'], 'check_out' => $data['check_out'], 'adult' => $data['adult']]);
+            session([
+                'check_in' => $data['check_in'],
+                'check_out' => $data['check_out'],
+                'number_night' => Carbon::parse($data['check_in'])->diffInDays(Carbon::parse($data['check_out'])),
+                'adult' => $data['adult']
+            ]);
             if (!empty($data['children'])) {
                 session(['children' => $data['children']]);
             }

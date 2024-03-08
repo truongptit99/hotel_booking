@@ -4489,7 +4489,7 @@ blockquote {
     height: 2px;
     background: #e0e0e0;
     position: absolute;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -4536,13 +4536,14 @@ span.round-tab:hover i {
 }
 
 .wizard .nav-tabs > li {
-    width: calc(100%/3);
+    width: 50%;
 }
 
 .wizard li:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 0;
     margin: 0 auto;
     bottom: 0px;
@@ -4553,7 +4554,8 @@ span.round-tab:hover i {
 .wizard li.active:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 1;
     margin: 0 auto;
     bottom: 0px;
