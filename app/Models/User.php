@@ -24,7 +24,9 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         'first_name',
         'last_name',
         'email',
+        'email_verified_at',
         'password',
+        'google_id'
     ];
 
     /**
@@ -89,6 +91,11 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     public function findById($id)
     {
         return $this->where('id', $id)->first();
+    }
+
+    public function findByEmail($email)
+    {
+        return $this->where('email', $email)->first();
     }
 
     public function updateUser($attributes, $id)

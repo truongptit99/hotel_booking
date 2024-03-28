@@ -48,7 +48,14 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="mb-0">
-                                    <button type="submit" class="btn-md btn-theme btn-block" onclick="this.form.submit(); this.disabled = true;">login</button>
+                                    <button type="submit" class="btn-md btn-theme btn-block" onclick="this.form.submit(); this.disabled = true;">Login</button>
+                                </div>
+                                <div class="mt-20 mb-20">Or</div>
+                                <div class="mb-0">
+                                    <a href="{{ route('login.google') }}" class="btn-md btn-theme btn-block">
+                                        <img src="{{ asset('client/img/logos/logo_google.png') }}" alt="">
+                                        Continue with Google
+                                    </a>
                                 </div>
                             </form>
                             <!-- Form end -->

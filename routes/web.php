@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Client\BookingController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PaymentController;
@@ -43,6 +44,11 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes(['verify' => true]);
+Route::group(['prefix' => 'google'], function () {
+    Route::get('login', [AuthLoginController::class, 'loginWithGoogle'])->name('login.google');
+    Route::any('callback', [AuthLoginController::class, 'callbackFromGoogle'])->name('callback.google');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::group(['prefix' => 'rooms'], function () {

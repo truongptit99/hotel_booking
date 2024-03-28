@@ -352,7 +352,7 @@ b, strong {
     letter-spacing: 1px;
     font-size: 11px;
     font-weight: 600;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #555;
     transition: .5s;
     border-radius: 2px;
@@ -370,7 +370,7 @@ b, strong {
     letter-spacing: 1px;
     font-size: 13px;
     font-weight: 600;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #555;
     transition: .5s;
     border-radius: 2px;
@@ -392,7 +392,7 @@ b, strong {
     letter-spacing: 1px;
     font-size: 18px;
     font-weight: 600;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #555;
     background: #DDD;
     transition: .5s;
@@ -3845,6 +3845,10 @@ blockquote {
 
 .mb-40 {
     margin-bottom: 40px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
 }
 
 .mb-0{
